@@ -1,0 +1,21 @@
+{% load staticfiles %} <!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "css/base.css" %}{% endblock %}" />
+    {% block extrastyle %}{% endblock %}
+</head>
+<body>
+    <div id="header">
+        {% block header %}{% endblock %}
+    </div>
+    <div id="content">
+        {% block slider %}{% endblock %}
+        {% block main_content %}{% endblock %}
+    </div>
+    <div id="footer">
+        {% block footer %}{% endblock %}
+    </div>
+</body>
+</html>
