@@ -16,6 +16,3 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Image
     template_name = 'gallery/preview.html'
-
-    # def get_queryset(self):
-    #     return Exhibit.objects.filter(pub_date__lte=timezone.now())
