@@ -1,18 +1,22 @@
 from django.views import generic
 from django.utils import timezone
+import datetime
 
 # Create your views here.
-from .models import Image, Exhibit
+from .models import Exhibit, Author
 
 
 class IndexView(generic.ListView):
-    template_name = 'gallery/index.html'
-    context_object_name = 'latest_added_image'
+    template_name = 'exhibit/index.html'
+    context_object_name = 'latest_added_exhibit'
 
     def get_queryset(self):
-        return Exhibit.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:9]
+        return Exhibit.objects.filter(pub_date__lte=datetime.date.today())
 
 
 class DetailView(generic.DetailView):
-    model = Image
-    template_name = 'gallery/preview.html'
+    model = Exhibit
+    template_name = 'exhibit/preview.html'
+
+    def get_queryset(self):
+        return Exhibit.objects.filter(pub_date__lte=timezone.now())

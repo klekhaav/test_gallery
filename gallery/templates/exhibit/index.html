@@ -1,0 +1,27 @@
+{% extends "exhibit/base.html" %}
+{% load staticfiles %}
+{% block title %}Welcome to our Gallery{% endblock %}
+{% block stylesheet %}{% static "css/base.css" %}{% endblock %}
+{% block extrastyle %}<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>{% endblock %}
+{% block header %}{% endblock %}
+{% block slider %}{% endblock %}
+{% block main_content %}
+    {{ timezone.now }}
+    {% for exhibit in object_list|slice:":9" %}
+        <div class="img">
+            <div class="header_img">
+                <h2>{{ exhibit.title }}</h2>
+            </div>
+            <div class="body_img">
+                <a href="{% url 'gallery:detail' exhibit.id %}">
+                    <img src="/media/{{ exhibit.original_img }}" width="300">
+                </a>
+            </div>
+            <div class="img_descr">
+                <p>Author: {{ exhibit.author }}</p>
+                <p>Creation date: {{ exhibit.creation_date|date:"d M Y" }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,7 +1,8 @@
 from __future__ import unicode_literals
 from django.db import models
-from PIL import Image
 from sorl.thumbnail import ImageField, get_thumbnail
+from django.utils import timezone
+import datetime
 
 # Create your models here.
 
@@ -59,7 +60,7 @@ class Exhibit(models.Model):
 
     author = models.ForeignKey(Author)
 
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateField('date published')
 
     original_img = ImageField(upload_to=dir_name)
 
@@ -71,3 +72,10 @@ class Exhibit(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def was_published_recently(self):
+        return self.pub_date <= datetime.date.today()
+
+    was_published_recently.admin_order_field = 'pub_date'
+    was_published_recently.boolean = True
+    was_published_recently.short_description = 'Published?'

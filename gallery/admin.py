@@ -12,8 +12,8 @@ class ExhibitAdmin(admin.ModelAdmin):
         ('Specification',   {'fields':  ['style', 'main_colour', 'pub_date']}),
     ]
     readonly_fields = ['image_thumb']
-    list_display = ('title', 'author', 'pub_date', 'creation_date', 'image_thumb')
-    search_fields = ('title',)
+    list_display = ('title', 'author', 'pub_date', 'creation_date', 'image_thumb', 'was_published_recently')
+    search_fields = ('title', 'author', 'creation_date', 'pub_date', 'was_published_recently')
     list_filter = ['pub_date']
 
 

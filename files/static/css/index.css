@@ -1,0 +1,30 @@
+.img_block {
+    position: related;
+}
+
+.header_img {
+    text-align: center;
+    text-shadow: 1px 1px 2px silver, 0 0 1em blue;
+}
+
+.img {
+    width: 300px;
+    float: left;
+    padding: 10px;
+    margin: 5px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.img:hover{
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
