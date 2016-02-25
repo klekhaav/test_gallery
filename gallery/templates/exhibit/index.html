@@ -2,11 +2,28 @@
 {% load staticfiles %}
 {% block title %}Welcome to our Gallery{% endblock %}
 {% block stylesheet %}{% static "css/base.css" %}{% endblock %}
-{% block extrastyle %}<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>{% endblock %}
-{% block header %}{% endblock %}
-{% block slider %}{% endblock %}
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/preview.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bxslider.css' %}"/>
+{% endblock %}
+{% block header %}
+    <div class="header_logo">
+        <a href="http://localhost:8000/"><img src="{% static 'logo.jpg' %}" alt="AllaGallery" border="0"></a>
+    </div>
+{% endblock %}
+{% block slider %}
+    <!--start-->
+    <div id='slider'>
+        <ul class="bxslider">
+            <li><img src="{% static 'slider/1-b.png' %}" /></li>
+            <li><img src="{% static 'slider/2-b.png' %}" /></li>
+            <li><img src="{% static 'slider/3-b.png' %}" /></li>
+            <li><img src="{% static 'slider/4-b.png' %}" /></li>
+        </ul>
+    </div>
+    <!--end-->
+{% endblock %}
 {% block main_content %}
-    {{ timezone.now }}
     {% for exhibit in object_list|slice:":9" %}
         <div class="img">
             <div class="header_img">
@@ -25,3 +42,19 @@
     {% endfor %}
 {% endblock %}
 {% block footer %}{% endblock %}
+{% block scripts %}
+    <!-- jQuery library (served from Google) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- bxSlider Javascript file -->
+    <script src="{% static 'js/jquery.bxslider.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                mode: 'fade',
+                auto: true,
+                autoControls: true,
+                pause: 2000
+            });
+        });
+    </script>
+{% endblock %}
