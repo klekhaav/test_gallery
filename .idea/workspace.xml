@@ -3,23 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="816f899c-4839-4f70-bbd5-63af6e08d858" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/Klekha/123.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/Klekha/123_EN5Gkzi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/Klekha/Снимок_экрана_от_2015-08-10_132920.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/Klekha/Снимок_экрана_от_2015-08-16_200444.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/Klekha/Снимок_экрана_от_2015-09-15_173900.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/Klekha/Снимок_экрана_от_2015-09-15_173900_GAc02a0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/Klekha/Снимок_экрана_от_2015-09-15_195520.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/Klekha/Снимок_экрана_от_2016-02-25_112917.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/cache/54/7d/547dd924bece65e92ee75766d6a6d6f3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/cache/85/3a/853a6212faf5f5ab302bbfbbd5c54632.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/cache/92/8b/928b5229ba943886015f86ca5acaf378.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/cache/96/eb/96ebfad3ca3bfbf9206d049dd8524ab9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/cache/a8/e1/a8e122c860597924be0308ba5058d998.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/cache/bf/73/bf736b814e315f1334892baeb7a020f0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/cache/cc/2a/cc2af13a5d10a4f21f5b747018315b6b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/media/cache/d3/e9/d3e949bdb97acee999c55edcdcb6e909.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gallery/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gallery/migrations/0002_auto_20160226_1232.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gallery/migrations/__init__.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gallery/admin.py" afterPath="$PROJECT_DIR$/gallery/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gallery/models.py" afterPath="$PROJECT_DIR$/gallery/models.py" />
@@ -60,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/gallery/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="47" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
+              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -71,8 +56,8 @@
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gallery/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5803109">
-              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.6348315">
+              <caret line="232" column="46" selection-start-line="232" selection-start-column="46" selection-end-line="232" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -290,24 +275,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -922,14 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gallery/templates/exhibit/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gallery/templates/exhibit/preview.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.962963">
@@ -972,10 +931,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gallery/templates/exhibit/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.0">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gallery/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="47" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -984,8 +951,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gallery/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5803109">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.6348315">
+          <caret line="232" column="46" selection-start-line="232" selection-start-column="46" selection-end-line="232" selection-end-column="46" />
           <folding />
         </state>
       </provider>

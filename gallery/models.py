@@ -21,71 +21,7 @@ def dir_name(self, filename):
     return url
 
 
-class Exhibit(models.Model):
-    title = models.CharField(max_length=30)
-    creation_date = models.DateField()
-    country = models.CharField(max_length=30)
-    author = models.ForeignKey(Author)
-    pub_date = models.DateField('date published')
-    original_img = ImageField(upload_to=dir_name)
-
-    # Exhibit types
-    PAINTING = 'Paint'
-    PHOTOGRAPHY = 'Photo'
-    DRAWING = 'Draw'
-    SCULPTURE = 'Sculpt'
-    COLLAGE = 'Collage'
-    PRINT = 'Print'
-
-    EX_TYPE_CHOICES = (
-        (PAINTING, (
-            ('Fine Art', 'Fine Art'),
-            ('Abstract', 'Abstract'),
-            ('Modern', 'Modern'),
-            ('Street Art', 'Street Art'),
-            ('Pop Art', 'Pop Art'),)
-        ),
-        (PHOTOGRAPHY, (
-            ('Fine Art', 'Fine Art'),
-            ('Portraiture', 'Portraiture'),
-            ('Abstract', 'Abstract'),
-            ('Documentary', 'Documentary'),
-            ('Conceptual','Conceptual'),)
-        ),
-        (DRAWING, (
-            ('Graffiti', 'Graffiti'),
-            ('Abstract', 'Abstract'),
-            ('Fine Art', 'Fine Art'),
-            ('Pop Art', 'Pop Art'),
-            ('Surrealism', 'Surrealism'),)
-        ),
-        (SCULPTURE, (
-            ('Pop Art', 'Pop Art'),
-            ('Abstract', 'Abstract'),
-            ('Wall', 'Wall'),
-            ('Figurative', 'Figurative'),
-            ('Modern', 'Modern'),)
-        ),
-        (COLLAGE, (
-            ('Dada', 'Dada'),
-            ('Pop Art', 'Pop Art'),
-            ('Abstract', 'Abstract'),
-            ('Surrealism', 'Surrealism'),
-            ('Street Art', 'Street Art'),)
-        ),
-        (PRINT, (
-            ('Fine Art', 'Fine Art'),
-            ('Abstract', 'Abstract'),
-            ('Art Deco', 'Art Deco'),
-            ('Pop Art', 'Pop Art'),
-            ('Folk Art', 'Folk Art'),)
-        ),
-    )
-
-    ex_type = models.CharField(max_length=15, choices=EX_TYPE_CHOICES)
-    ex_type.short_description = 'Type and Style'
-
-    #COLORS
+class Color(models.Model):
     BLACK = '#000000'
     GRAY = '#808080'
     SILVER = '#C0C0C0'
@@ -111,9 +47,21 @@ class Exhibit(models.Model):
         (BLUE, 'blue'), (PURPLE, 'purple'), (FUNCHSIA, 'funchsia'),
     )
 
-    main_colour = models.CharField(max_length=7,
-                                   choices=MAIN_COLOR_CHOICES,
-                                   default=WHITE)
+    main_color = models.CharField(max_length=8,
+                                  choices=MAIN_COLOR_CHOICES,
+                                  default=WHITE)
+
+    def __unicode__(self):
+        return u'%s' % self.main_color
+
+
+class Exhibit(models.Model):
+    title = models.CharField(max_length=30)
+    creation_date = models.DateField()
+    country = models.CharField(max_length=30)
+    author = models.ForeignKey(Author)
+    pub_date = models.DateField('date published')
+    original_img = ImageField(upload_to=dir_name)
 
     def image_thumb(self):
         im = get_thumbnail(self.original_img, '150x150', crop='center', quality=99)
@@ -127,8 +75,170 @@ class Exhibit(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published?'
 
+    class Meta:
+        abstract = True
+
+
+class PaintStyle(models.Model):
+    style = models.CharField(max_length=30)
+
     def __unicode__(self):
-        return self.title
+        return u'%s' % self.style
 
 
+class PaintSubject(models.Model):
+    subject = models.CharField(max_length=30)
 
+    def __unicode__(self):
+        return u'%s' % self.subject
+
+
+class PaintMedium(models.Model):
+    medium = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.medium
+
+
+class Paint(Exhibit):
+    style = models.ForeignKey(PaintStyle)
+    subject = models.ForeignKey(PaintSubject)
+    medium = models.ForeignKey(PaintMedium)
+    main_color = models.ForeignKey(Color)
+
+
+class PhotoStyle(models.Model):
+    style = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.style
+
+
+class PhotoSubject(models.Model):
+    subject = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.subject
+
+
+class PhotoMedium(models.Model):
+    medium = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.medium
+
+
+class Photo(Exhibit):
+    style = models.ForeignKey(PhotoStyle)
+    subject = models.ForeignKey(PhotoSubject)
+    medium = models.ForeignKey(PhotoMedium)
+
+
+class DrawStyle(models.Model):
+    style = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.style
+
+
+class DrawSubject(models.Model):
+    subject = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.subject
+
+
+class DrawMedium(models.Model):
+    medium = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.medium
+
+
+class Draw(Exhibit):
+    style = models.ForeignKey(DrawStyle)
+    subject = models.ForeignKey(DrawSubject)
+    medium = models.ForeignKey(DrawMedium)
+    main_color = models.ForeignKey(Color)
+
+
+class SculptStyle(models.Model):
+    style = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.style
+
+
+class SculptSubject(models.Model):
+    subject = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.subject
+
+
+class SculptMedium(models.Model):
+    medium = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.medium
+
+
+class Sculpt(Exhibit):
+    style = models.ForeignKey(SculptStyle)
+    subject = models.ForeignKey(SculptSubject)
+    medium = models.ForeignKey(SculptMedium)
+
+
+class CollageStyle(models.Model):
+    style = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.style
+
+
+class CollageSubject(models.Model):
+    subject = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.subject
+
+
+class CollageMedium(models.Model):
+    medium = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.medium
+
+
+class Collage(Exhibit):
+    style = models.ForeignKey(CollageStyle)
+    subject = models.ForeignKey(CollageSubject)
+    medium = models.ForeignKey(CollageMedium)
+
+
+class PrintStyle(models.Model):
+    style = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.style
+
+
+class PrintSubject(models.Model):
+    subject = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.subject
+
+
+class PrintMedium(models.Model):
+    medium = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s' % self.medium
+
+
+class Print(Exhibit):
+    style = models.ForeignKey(PrintStyle)
+    subject = models.ForeignKey(PrintSubject)
+    medium = models.ForeignKey(PrintMedium)
+    main_color = models.ForeignKey(Color)
